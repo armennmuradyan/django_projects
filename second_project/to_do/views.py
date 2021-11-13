@@ -23,5 +23,5 @@ def task(request):
     dict_ = {}
     for i in range(16):
         dict_[i] = i**2
-        print(dict_)
+    print(dict_)
     return HttpResponse(dict_)

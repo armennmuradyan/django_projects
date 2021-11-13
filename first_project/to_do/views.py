@@ -1,11 +1,20 @@
 from django.shortcuts import HttpResponse
+from to_do.models import Task
 
 
 def home(request):
-    print(request.__dict__)
-    return HttpResponse("Hello from Django app")
+    tasks = Task.objects.all()
+
+    return HttpResponse("Hello from Django app{}{}".format(*tasks))
 
 
-def present(request):
+def new_url(request):
+    tasks = Task(title="Task 4 ", description="test", status=0)
+    tasks.save()
+    return HttpResponse("Okay")
 
-    return HttpResponse("Tigran Danielyan")
+
+def filtered_data(request):
+    task = Task.objects.get(id=1, title="New one")
+    # print(task.query)
+    return HttpResponse(task)

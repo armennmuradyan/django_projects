@@ -3,5 +3,6 @@ from to_do import views
 
 urlpatterns = [
     path('', views.home),
-    path('present/', views.present)
+    path('newurl/', views.new_url),
+    path("filtered_data/",views.filtered_data)
 ]
